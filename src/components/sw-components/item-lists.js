@@ -1,41 +1,52 @@
 import React from 'react';
-import SwapiService from "../../services/swapi-service";
-import { withData } from "../hoc";
+import { withData, withSwapiService, withChildFunction, compose } from "../hoc";
 import ItemList from "../item-list";
 
 
-const swapiService = new SwapiService();
+const renderName = ({name}) => (<span>{name}</span>);
+const renderNamePerson = ({name,gender,birthYear}) => (<span>{name}<small> ({gender}, {birthYear})</small></span>);
 
-const {
-    getAllPersons,
-    getAllStarships,
-    getAllPlanets
-} = swapiService;
 
-const withChildFunction = (Wrapper, fn) => {
-    return (props) => {
-        return (
-            <Wrapper {...props}>
-                {fn}
-            </Wrapper>
-        )
-    }
+const mapPersonMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getAllPersons
+    };
+};
+const mapPlanetMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getAllPlanets
+    };
+};
+const mapStarshipMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getAllStarships
+    };
 };
 
-const PersonList = withData(withChildFunction(
-    ItemList,
-    ({name,gender,birthYear}) => (<span>{name}<small> ({gender}, {birthYear})</small></span>)
-), getAllPersons);
 
-const PlanetList = withData(withChildFunction(
-    ItemList,
-    ({name}) => (<span>{name}</span>)
-), getAllPlanets);
 
-const StarshipList = withData(withChildFunction(
+const PersonList = compose(
+    withSwapiService(mapPersonMethodsToProps),
+    withData,
+    withChildFunction(renderNamePerson)
+)(ItemList);
+
+const PersonList_ = withSwapiService(
+    withData(
+    withChildFunction(renderNamePerson)), 
+    mapPersonMethodsToProps);
+
+const PlanetList = withSwapiService(
+    withData(
+    withChildFunction(ItemList, renderName)
+    ), mapPlanetMethodsToProps);
+
+const StarshipList = withSwapiService(
+    withData(
+    withChildFunction(
     ItemList,
-    ({name}) => (<span>{name}</span>)
-), getAllStarships);
+    renderName,
+)), mapStarshipMethodsToProps);
 
 export {
     PersonList,
