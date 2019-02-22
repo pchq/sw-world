@@ -63,7 +63,7 @@ export default class ItemDetails extends Component {
             return <Spinner/>;
             
         if (!item)
-            return <div className="card"><div className="card-body">Select a person from a list</div></div>;
+            return <div className="card"><div className="card-body">Select an element from a list</div></div>;
         
                 
         const {name, image} = item;

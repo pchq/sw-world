@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import Row from '../row';
-import { DetailPerson as Detail, PersonList as List } from '../sw-components';
+import { DetailPlanet as Detail, PlanetList as List } from '../sw-components';
 
-export default class PeoplePage extends Component{
+export default class PlanetsPage extends Component{
     
     state = {
         selectedItem: null,
