@@ -14,7 +14,6 @@ export default class SwapiService{
         switch (type) {
             case 'people':
                 return 'characters';
-                break;
             default:
                 return type;
         }

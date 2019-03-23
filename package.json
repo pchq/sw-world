@@ -1,8 +1,10 @@
 {
-  "name": "starw",
+  "name": "swworld",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pchq.github.io/sw-world",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
