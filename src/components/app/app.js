@@ -7,6 +7,7 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import { SwapiServiceProvider } from "../swapi-service-context";
 
+import './bootstrap.min.css';
 import './app.css';
 
 import ErrorBoundary from "../error-boundary";
