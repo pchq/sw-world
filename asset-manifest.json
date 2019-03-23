@@ -1,0 +1,13 @@
+{
+  "main.css": "/sw-world/static/css/main.932f4da3.chunk.css",
+  "main.js": "/sw-world/static/js/main.2fcae1df.chunk.js",
+  "main.js.map": "/sw-world/static/js/main.2fcae1df.chunk.js.map",
+  "static/js/1.79038d9d.chunk.js": "/sw-world/static/js/1.79038d9d.chunk.js",
+  "static/js/1.79038d9d.chunk.js.map": "/sw-world/static/js/1.79038d9d.chunk.js.map",
+  "runtime~main.js": "/sw-world/static/js/runtime~main.2707b1a1.js",
+  "runtime~main.js.map": "/sw-world/static/js/runtime~main.2707b1a1.js.map",
+  "static/css/main.932f4da3.chunk.css.map": "/sw-world/static/css/main.932f4da3.chunk.css.map",
+  "index.html": "/sw-world/index.html",
+  "precache-manifest.f85eee5e256d9a138705d57d4085fdf4.js": "/sw-world/precache-manifest.f85eee5e256d9a138705d57d4085fdf4.js",
+  "service-worker.js": "/sw-world/service-worker.js"
+}
