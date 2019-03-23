@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import SwapiService from '../../services/swapi-service';
 
@@ -29,20 +29,22 @@ export default class App extends Component {
                     <Router>
                         <div className="stardb-app">
                             <Header/>
-                                                        
-                            <Route path='/' exact component={RandomPlanet}/>
-                            <Route path='/' exact render={() => <h2>Welcom to Star Wars DB</h2>}/>
-                            <Route path='/people' component={PeoplePage}/>
-                            <Route path='/planets' component={PlanetsPage}/>
-                            <Route path='/starships' exact component={StarshipsPage}/>
-                            <Route path='/starships/:id' 
-                                   render={({match}) => {
-                                       console.log(match);
-                                       const {id} = match.params;
-                                       return(<DetailStarship id={id}/>)
-                                   }}
-                            />
-                            
+                            <RandomPlanet/>
+                            <Switch>
+                                <Route path='/' exact render={() => <h2>Welcom to Star Wars DB</h2>}/>
+                                <Route path='/people' component={PeoplePage}/>
+                                <Route path='/planets/:id?' component={PlanetsPage}/>
+                                <Route path='/starships' exact component={StarshipsPage}/>
+                                <Route path='/starships/:id' 
+                                       render={({match}) => {
+                                           console.log(match);
+                                           const {id} = match.params;
+                                           return(<DetailStarship id={id}/>)
+                                       }}
+                                />
+                                
+                                <Route render={() => <h2>Page not found</h2>}/>
+                            </Switch>
                         </div>
                     </Router>
                 </SwapiServiceProvider>
